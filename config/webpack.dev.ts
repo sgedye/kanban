@@ -19,7 +19,7 @@ module.exports = merge(common, {
   devServer: {
     host: "localhost",
     port: 9000,
-    contentBase: path.resolve(__dirname, "../dist"),
+    static: path.resolve(__dirname, "../dist"),
     open: "chrome",
     hot: true,
   },

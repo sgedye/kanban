@@ -1,0 +1,22 @@
+.layout-wrapper {
+  display: grid;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Sticky footer
+@supports (display: grid) {
+	.layout-wrapper {
+		min-height: 100vh;
+		display: grid;
+		grid-template-areas: 
+      "header header"
+      "sidebar main"
+      "footer footer";
+		grid-template-rows: auto 1fr auto;
+	}
+  #header { grid-area: header; }
+  #sidebar { grid-area: sidebar; }
+	#main 	{ grid-area: main; }
+	#footer { grid-area: footer; }
+}

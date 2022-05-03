@@ -6,6 +6,7 @@ const { merge } = require("webpack-merge");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /** @type {import("webpack").Configuration} */
 module.exports = merge(common, {
@@ -25,6 +26,10 @@ module.exports = merge(common, {
   },
   plugins: [
     new HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      ignoreOrder: true,
+      filename: "[name].css",
+    }),
     new ReactRefreshWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "/public/index.html",
@@ -35,7 +40,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.s?css$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
         include: [path.resolve(__dirname, "../src/assets")],
       },
     ],

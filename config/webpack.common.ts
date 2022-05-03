@@ -18,7 +18,7 @@ module.exports = {
       },
       {
         test: /\.(js|ts)x?$/i,
-        use: ["babel-loader", "ts-loader"],
+        use: ["babel-loader", "@linaria/webpack-loader", "ts-loader"],
         include: [path.resolve(__dirname, "../src")],
       },
       {

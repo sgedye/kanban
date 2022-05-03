@@ -18,7 +18,10 @@ module.exports = merge(common, {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      ignoreOrder: true,
+      filename: "[name].css",
+    }),
     new HtmlWebpackPlugin({
       template: "/public/index.html",
       favicon: path.resolve(__dirname, "../public/favicon_prod.ico"),

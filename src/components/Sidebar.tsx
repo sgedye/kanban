@@ -22,16 +22,17 @@ export const Sidebar = (): JSX.Element => {
         //   width: 300px;
         // `
       )}
-      style={{ height: "100%", width: 300 }}
+      style={{ height: "100%", width: 250, transform: "translateX(-180px)" }}
     >
-      <a
-        href="/"
-        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-      >
-        <svg className="bi me-2" width="40" height="32">
-          <use xlinkHref="#bootstrap" />
-        </svg>
-        <span className="fs-4">Sidebar</span>
+      <a href="/" className="ms-auto pe-3">
+        <span className="visually-hidden">Boostrap Sidebar</span>
+        <CustomIcon
+          icon="bootstrap"
+          aria-hidden
+          width="30"
+          height="24"
+          className="filter-invert"
+        />
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
@@ -41,19 +42,19 @@ export const Sidebar = (): JSX.Element => {
             <a
               href={path}
               className={cx(
-                "nav-link",
+                "nav-link d-flex justify-content-between align-items-center",
                 name === "Home" ? "active" : "text-white"
               )}
               aria-current="page"
             >
+              {name}
               <CustomIcon
                 icon={icon}
                 aria-hidden
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 className="filter-invert"
-              />{" "}
-              {name}
+              />
             </a>
           </li>
         ))}

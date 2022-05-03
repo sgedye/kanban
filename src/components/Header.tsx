@@ -1,7 +1,7 @@
 export const Header = (): JSX.Element => {
   return (
     <header id="header">
-      <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark py-5">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Fixed navbar

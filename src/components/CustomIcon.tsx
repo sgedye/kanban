@@ -1,22 +1,38 @@
 /* https://remixicon.com/ */
 
 import bootstrapIcons from "../assets/bootstrapicon.symbol.svg";
+import customIcons from "../assets/customicons.symbol.svg?url";
 import remixIcons from "../assets/remixicon.symbol.svg?url";
 
 interface CustomIconProps extends React.SVGAttributes<SVGElement> {
-  isRemixIcon?: boolean;
+  iconType: "bootstrapIcons" | "customIcons" | "remixIcons";
   icon: string;
 }
 export const CustomIcon = ({
-  isRemixIcon = false,
+  iconType,
   icon,
   ...rest
-}: CustomIconProps): JSX.Element => {
-  return (
-    <svg {...rest}>
-      <use
-        xlinkHref={`${isRemixIcon ? remixIcons : bootstrapIcons}#${icon}`}
-      ></use>
-    </svg>
-  );
+}: CustomIconProps): JSX.Element | null => {
+  switch (iconType) {
+    case "bootstrapIcons":
+      return (
+        <svg {...rest}>
+          <use xlinkHref={`${bootstrapIcons}#${icon}`}></use>
+        </svg>
+      );
+    case "customIcons":
+      return (
+        <svg {...rest}>
+          <use xlinkHref={`${customIcons}#${icon}`}></use>
+        </svg>
+      );
+    case "remixIcons":
+      return (
+        <svg {...rest}>
+          <use xlinkHref={`${remixIcons}#${icon}`}></use>
+        </svg>
+      );
+    default:
+      return null;
+  }
 };

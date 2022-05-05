@@ -12,7 +12,7 @@ const SIDEBAR_LINKS = [
 
 export const Sidebar = (): JSX.Element => {
   return (
-    <div
+    <aside
       id="sidebar"
       className={cx(
         "d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
@@ -22,12 +22,16 @@ export const Sidebar = (): JSX.Element => {
         //   width: 300px;
         // `
       )}
-      style={{ height: "100%", width: 250, transform: "translateX(-180px)" }}
+      style={{
+        width: 250,
+        // transform: "translateX(-180px)"
+      }}
     >
       <a href="/" className="ms-auto pe-3">
         <span className="visually-hidden">Boostrap Sidebar</span>
         <CustomIcon
           icon="bootstrap"
+          iconType="bootstrapIcons"
           aria-hidden
           width="30"
           height="24"
@@ -50,6 +54,7 @@ export const Sidebar = (): JSX.Element => {
               {name}
               <CustomIcon
                 icon={icon}
+                iconType="bootstrapIcons"
                 aria-hidden
                 width="20"
                 height="20"
@@ -59,6 +64,6 @@ export const Sidebar = (): JSX.Element => {
           </li>
         ))}
       </ul>
-    </div>
+    </aside>
   );
 };

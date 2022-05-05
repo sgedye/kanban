@@ -1,5 +1,8 @@
 import { Helmet } from "react-helmet";
 import { Footer, Header, Sidebar } from "./components";
+import { TaskColumn } from "./components/TaskColumn";
+
+const boards = ["Backlog", "In progress", "Done"];
 
 export const App = (): JSX.Element => {
   return (
@@ -24,9 +27,18 @@ export const App = (): JSX.Element => {
         <meta property="og:locale" content="en_AU" />
       </Helmet>
       <Header />
-      <main>
+      <main className="d-flex">
         <Sidebar />
         {/* Main Content */}
+        <div id="main" className="container" style={{ minWidth: 800 }}>
+          <div className="row">
+            {boards.map((n, idx) => (
+              <div key={idx} className="col-lg d-flex flex-column">
+                <TaskColumn columnTitle={n} />
+              </div>
+            ))}
+          </div>
+        </div>
       </main>
       <Footer />
     </div>

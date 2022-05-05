@@ -1,4 +1,4 @@
-// import { useGetTasksInList } from '../hooks/useGetTasksInList';
+import { useGetTasksInList } from "../utils";
 
 import { TaskItem } from ".";
 
@@ -9,10 +9,11 @@ interface TaskColumnProps {
 }
 
 export const TaskColumn = ({ columnTitle }: TaskColumnProps): JSX.Element => {
+  const taskList = useGetTasksInList(columnTitle);
+
   const moreOptions = () => console.log("more options here");
   const addTask = () => console.log("add task");
 
-  const taskList = [1, 2, 3] as number[]; //useGetTaskInList(columnTitle);
   return (
     <>
       <div
@@ -74,7 +75,7 @@ export const TaskColumn = ({ columnTitle }: TaskColumnProps): JSX.Element => {
               </button>
             </div>
           ) : (
-            taskList.map((n, idx) => <TaskItem id={idx} />)
+            taskList.map((task) => <TaskItem {...task} />)
           )}
         </div>
       </div>

@@ -1,8 +1,10 @@
-interface TaskItemProps {
-  id: number;
-}
+import { TaskInterface } from "./types";
 
-export const TaskItem = ({ id }: TaskItemProps): JSX.Element => {
+export const TaskItem = ({
+  id,
+  title,
+  description,
+}: TaskInterface): JSX.Element => {
   return (
     <div
       key={id}
@@ -13,7 +15,8 @@ export const TaskItem = ({ id }: TaskItemProps): JSX.Element => {
         marginBottom: "1rem",
       }}
     >
-      TaskItem
+      <h3>{title}</h3>
+      <p>{description}</p>
     </div>
   );
 };

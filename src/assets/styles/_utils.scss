@@ -1,3 +1,10 @@
 .filter-invert {
   filter: invert(1);
 }
+
+
+.center-children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

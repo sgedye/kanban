@@ -1,10 +1,10 @@
 export const Header = (): JSX.Element => {
   return (
     <header id="header">
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark py-5">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-5">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Fixed navbar
+          <a className="navbar-brand" href="/">
+            navbar
           </a>
           <button
             className="navbar-toggler"
@@ -17,22 +17,25 @@ export const Header = (): JSX.Element => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarCollapse">
-            <ul className="navbar-nav me-auto mb-2 mb-md-0">
+          <div
+            className="collapse navbar-collapse ms-lg-auto"
+            id="navbarCollapse"
+          >
+            <ul className="navbar-nav me-auto me-lg-0 ms-lg-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/">
                   Link
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link disabled"
-                  href="#"
+                  href="/"
                   tabIndex={-1}
                   aria-disabled="true"
                 >
@@ -40,17 +43,6 @@ export const Header = (): JSX.Element => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
         </div>
       </nav>

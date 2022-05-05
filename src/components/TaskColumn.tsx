@@ -55,12 +55,14 @@ export const TaskColumn = ({ columnTitle }: TaskColumnProps): JSX.Element => {
           </button>
         </div>
 
-        <div className="column__body">
-          {taskList.length === 0 ? (
-            <div className="text-center">
+        <div className="column__body px-2 py-4 bg-dark">
+          {taskList?.length ? (
+            taskList.map((task) => <TaskItem {...task} />)
+          ) : (
+            <div>
               <button
                 type="button"
-                className="btn center-children"
+                className="btn btn-light center-children mx-auto"
                 onClick={addTask}
               >
                 <CustomIcon
@@ -74,8 +76,6 @@ export const TaskColumn = ({ columnTitle }: TaskColumnProps): JSX.Element => {
                 <span>Add task</span>
               </button>
             </div>
-          ) : (
-            taskList.map((task) => <TaskItem {...task} />)
           )}
         </div>
       </div>

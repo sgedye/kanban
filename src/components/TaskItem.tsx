@@ -9,10 +9,10 @@ export const TaskItem = ({
     <div
       key={id}
       style={{
-        width: 300,
-        height: 200,
         background: "pink",
         marginBottom: "1rem",
+        minHeight: "8rem",
+        padding: "1rem",
       }}
     >
       <h3>{title}</h3>
